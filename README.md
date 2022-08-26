@@ -16,4 +16,4 @@
 >**Note** Multi factor authentication is a way of protecting user accounts against threats with the intent of stealing the account and have unauthorized access to a Salesforce environment. This protection consists of using multiple factors as a way of identifying the true owner of the user account, this includes a user+password combination with the addition of presenting a code from an authenticator app. Email, SMS and phone calls are not a form of MFA authorized by Salesforce.
 
   - To enable MFA for specific users you have to **enable Multi-Factor-Auth** on Systems Permissions of their Profiles and/ or assign a specific Permission Set w/ those System Permissions.
-  - Check how to implement it as a user [here](JPVBMR/Salesforce/README.md)
+  - Check how to implement it as a user [here](Resources/Multi-Factor-Authentication.pdf)
