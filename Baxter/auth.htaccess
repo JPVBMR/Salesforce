@@ -1,5 +1,0 @@
-#in .htaccess file in the folder you're trying to protect
-AuthType Basic
-AuthName "This Area is Password Protected"
-AuthUserFile /Salesforce/testing.htpasswd
-Require valid-user
