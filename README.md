@@ -17,3 +17,4 @@
 
   - To enable MFA for specific users you have to **enable Multi-Factor-Auth** on Systems Permissions of their Profiles and/ or assign a specific Permission Set w/ those System Permissions.
   - Check how to implement it as a user [here](Resources/Multi-Factor-Authentication.pdf)
+ 
