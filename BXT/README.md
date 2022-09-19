@@ -44,3 +44,21 @@
   - Manually resolve conflit
 - Generate Diff Report
 - Validate Deployment and Select Tests to run
+
+## DevOps Session - Autorabit hands-on example (19/09/2022)
+
+  - Login to AutoRabit and use Bitbucket and Salesforce Credentials:
+    - AutoRabit -> **SF ORG MGMT**: - Set Sandbox Org Credentials
+    ![image](https://user-images.githubusercontent.com/51756941/190984603-57855817-2a2a-4e78-9eaf-ae1aeb54d645.png)
+    
+    - Credentials: Set Bitbucket Credentials
+  
+  - Commit -> Create New -> **EZ Commit** : 
+    ![image](https://user-images.githubusercontent.com/51756941/190985124-7e4ebeec-0753-4048-bcaa-eafdda52f20c.png)
+    
+
+    
+
+      
+
+
