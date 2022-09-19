@@ -46,6 +46,7 @@
 - Validate Deployment and Select Tests to run
 
 ## DevOps Session - Autorabit hands-on example (19/09/2022)
+  > **Note** Recorded Meeting : https://groupecgi-my.sharepoint.com/personal/inacio_ferreira_cgi_com/_layouts/15/stream.aspx?id=%2Fpersonal%2Finacio%5Fferreira%5Fcgi%5Fcom%2FDocuments%2FRecordings%2FDevOps%20Session%20%2D%20Autorabit%20hands%2Don%20example%2D20220919%5F100320%2DMeeting%20Recording%2Emp4&ga=1
 
   - Login to AutoRabit and use Bitbucket and Salesforce Credentials:
     - AutoRabit -> **SF ORG MGMT**: - Set Sandbox Org Credentials
