@@ -58,8 +58,19 @@
     ![image](https://user-images.githubusercontent.com/51756941/190985124-7e4ebeec-0753-4048-bcaa-eafdda52f20c.png)
     
 
+## Bug/Defect Fixing - Jira Procedure
     
+    ### Dockgen Package - Drawloop :
 
+      1 - Alterar os post deployment steps das stories para adicionar o "removam a versao antiga"
+
+      2 - Adicionar comment nos Post Deployment a dizer que é para executar novamente
+
+      3 - Fechar defects (adicionar bug category) e comentario a dizer que ja esta fixed e para re-testarem
+
+      4 - Mover USs para Deploy Sit
+
+      5 - Pedir ao Naveen para fazer re-deploy das stories
       
 
 
