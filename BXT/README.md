@@ -60,17 +60,17 @@
 
 ## Bug/Defect Fixing - Jira Procedure
     
-    ### Dockgen Package - Drawloop :
+  ### Dockgen Package - Drawloop :
 
-      1 - Alterar os post deployment steps das stories para adicionar o "removam a versao antiga"
+    1 - Alterar os post deployment steps das stories para adicionar o "removam a versao antiga"
 
-      2 - Adicionar comment nos Post Deployment a dizer que é para executar novamente
+    2 - Adicionar comment nos Post Deployment a dizer que é para executar novamente
 
-      3 - Fechar defects (adicionar bug category) e comentario a dizer que ja esta fixed e para re-testarem
+    3 - Fechar defects (adicionar bug category) e comentario a dizer que ja esta fixed e para re-testarem
 
-      4 - Mover USs para Deploy Sit
+    4 - Mover USs para Deploy Sit
 
-      5 - Pedir ao Naveen para fazer re-deploy das stories
+    5 - Pedir ao Naveen para fazer re-deploy das stories
       
 
 
