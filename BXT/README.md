@@ -1,5 +1,8 @@
 # Sessions & Notes
 
+> **Note** Out of Office Status Message  
+Hello,Thank you for your message. I’m currently out of the office with limited access to my email. If you need immediate assistance please contact me on my mobile (00 351 *** *** ***), otherwise I will promptly respond to your email upon my return on 18th November. Best Regards *******
+
 ## B2C core onboarding #6 - Moving code in environments
 
 > **Note** The purpose of this session is to present auto-rabit and the steps for moving code when developed. We'll be using **AutoRabit** and **Bitbucket**
