@@ -1,5 +1,11 @@
 # Salesforce Docs & Solutions
 
+### Files in this repository
+
+  - [Nintex DocGen - Drawloop.md ](https://github.com/JPVBMR/Salesforce/blob/main/Nintex%20DocGen%20-%20Drawloop.md) - How to use Drawloop in SF in order to generate and automate documents generation. Implement data object relationships and some Apex classes to structure output data connecting different objects. 
+  - [Frontend Tips & Tricks.md   ](https://github.com/JPVBMR/Salesforce/blob/main/Frontend%20Tips%20%26%20Tricks.md) - Some useful tips and custom code that can be used in Frontend components.
+
+
 ### Relevant Links
   
   - Salesforce Academy CGI Trailmix : https://trailhead.salesforce.com/pt-BR/users/rgpbrito/trailmixes/salesforce-academy-cgi
@@ -11,6 +17,6 @@
   - Parse CSV File in Apex : https://nicocrm.wordpress.com/2011/03/06/parse-csv-file-in-salesforce-apex/
   - Custom Toast in Lightning : https://newstechnologystuff.com/2019/02/09/custom-toast-component-in-lightning/
   
-  - Nintex DocGen Drawloop  : [Nintex DocGen - Drawloop.md ](https://github.com/JPVBMR/Salesforce/blob/main/Nintex%20DocGen%20-%20Drawloop.md)
+
    
 
