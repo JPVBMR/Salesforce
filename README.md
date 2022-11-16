@@ -10,6 +10,8 @@
   - Understanding Salesforce Files : https://driveconnect.me/blog/contentdocument-contentversion-and-contentdocumentlink/
   - Parse CSV File in Apex : https://nicocrm.wordpress.com/2011/03/06/parse-csv-file-in-salesforce-apex/
   - Custom Toast in Lightning : https://newstechnologystuff.com/2019/02/09/custom-toast-component-in-lightning/
+  
+  - Nintex DocGen Drawloop  : [Nintex DocGen - Drawloop.md ](https://github.com/JPVBMR/Salesforce/blob/main/Nintex%20DocGen%20-%20Drawloop.md)
    
 
 ### Salesforce Multi-Factor Authentication for nBS
