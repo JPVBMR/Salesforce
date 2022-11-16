@@ -1,3 +1,5 @@
+# Salesforce Frontend HTML & CSS
+
 ### Freeze columns in horizontal scroll on lightning data table
   - How to create an aura component data table with horizontal scroll.
   - How to fix columns position on scroll. 
