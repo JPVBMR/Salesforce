@@ -2,7 +2,7 @@
 
 ## Format Lightning Component Quick action with Custom header/footer : 
 
-
+![Alt text](https://raw.githubusercontent.com/JPVBMR/Salesforce/main/Resources/Format%20Lightning%20Component%20Quick%20action%20with%20Custom%20headerfooter.PNG)
 
 
 ```html
