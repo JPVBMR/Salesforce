@@ -3,7 +3,7 @@
 ## Format Lightning Component Quick Action with Custom Header & Footer 
 >**Note** 
 >Add this aura component to an **Action** button on an object Record Page. This component overrides the standard **Header and Footer** of an Action component.
->Note that you must use implements="force:lightningQuickActionWithoutHeader" to remove the standard components and the *CSS code** at the end of the file has to be defined on the aura component.  
+>Note that you must use implements="force:lightningQuickActionWithoutHeader" to remove the standard components and the *CSS code** at the end of the file has to be defined on the aura component. See forum at https://developer.salesforce.com/forums/?id=9060G0000005YtVQAU  
 ><p align="center">
 ><img src="https://github.com/JPVBMR/Salesforce/blob/main/Resources/Format%20Lightning%20Component%20Quick%20action%20with%20Custom%20headerfooter.PNG" >
 ></p>
