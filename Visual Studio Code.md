@@ -1,4 +1,6 @@
 # Visual Studio Code 
+
+## Org Setup on VSCode
 > **Note** This file explains how to setup VS Code for Salesforce and has some usefull tips and extensions to use.
 - Setup Visual Studio Code : https://www.apexhours.com/how-to-setup-visual-studio-code-for-salesforce/
 
