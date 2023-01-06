@@ -1,6 +1,5 @@
 # Salesforce Docs & Solutions
 
-### Content of this repository
   
   #### Training: 
   - [Certifications - RoadMap & Notes](https://github.com/JPVBMR/Salesforce/blob/main/Certifications.md) - Personal roadmap to get Salesforce certifications.
