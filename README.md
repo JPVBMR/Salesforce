@@ -5,7 +5,7 @@
   - [Certifications - RoadMap & Notes](https://github.com/JPVBMR/Salesforce/blob/main/Certifications.md) - Personal roadmap to get Salesforce certifications.
   - [Multi-Factor Authentication.pdf](https://github.com/JPVBMR/Salesforce/blob/main/Resources/Multi-Factor-Authentication.pdf) - Multi-Factor Auth explanation for nBS.
   - [Nintex DocGen - Drawloop.md ](https://github.com/JPVBMR/Salesforce/blob/main/Nintex%20DocGen%20-%20Drawloop.md) - How to use Drawloop in SF in order to automate documents generation. Implement data object relationships and some Apex classes to structure output data connecting different objects. 
-  - [Frontend Tips & Tricks.md   ](https://github.com/JPVBMR/Salesforce/blob/main/Frontend%20Tips%20%26%20Tricks.md) - Some useful tips and custom code that can be used in Frontend components.
+  - [Salesforce Frontend.md   ](https://github.com/JPVBMR/Salesforce/blob/main/Resources/Frontend%20Tips%20%26%20Tricks.md) - Some useful tips and custom code that can be used in Frontend components.
  - [Visual Studio Code.md](https://github.com/JPVBMR/Salesforce/blob/main/Visual%20Studio%20Code.md) - How to setup VS Code for Salesforce and some usefull tips and extensions to use.
   
 
