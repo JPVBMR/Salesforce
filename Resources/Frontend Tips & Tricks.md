@@ -1,5 +1,68 @@
 # Salesforce Frontend HTML & CSS 
 
+
+
+## Custom Toast - Lightning Component
+>**Note** 
+> Create a custom toast in an aura component. This component has 2 main attributes : type, message.
+> The toast type,can be 'error', 'warning', 'success', or 'info'.
+> <p align="center">
+>    	<img  src="https://github.com/JPVBMR/Salesforce/blob/main/Resources/Screenshots/Capture.PNG?raw=true">
+>	<img  src="https://github.com/JPVBMR/Salesforce/blob/main/Resources/Screenshots/Capture1.PNG?raw=true">
+>	<img  src="https://github.com/JPVBMR/Salesforce/blob/main/Resources/Screenshots/Capture2.PNG?raw=true">
+> </p>
+
+```html
+
+	<!-- Toast Attributes -->
+	<aura:attribute name="showToast" type="Boolean" default="false" />
+	<aura:attribute name="toastMessage" type="String" default='' />
+	<aura:attribute name="messageType" type="String" default='error' />
+
+
+	<!-- Toast Section -->
+	<aura:if isTrue="{!v.showToast}">
+
+	<div aura:id="toastModel" style="height:4rem;">
+	    <div class="slds-notify_container slds-is-relative">
+		<div class="{!'slds-notify slds-notify_toast slds-theme_'+v.messageType}" role="status">
+		    <span class="slds-assistive-text">{!v.messageType}</span>
+		    <span class="{!'slds-icon_container slds-icon-utility-'+v.messageType+' slds-icon-utility-success slds-m-right_small slds-no-flex slds-align-top'}" title="{!v.toastMessage}">
+			<lightning:icon iconName="{!'utility:'+v.messageType}" size="small" variant="inverse" styleclass="slds-icon slds-icon_small"/>
+		    </span>
+		    <div class="slds-notify__content">
+			<h2 class="slds-text-heading_small ">{!v.toastMessage}</h2>
+		    </div>
+		    <div class="slds-notify__close">
+			<button class="slds-button slds-button_icon slds-button_icon-inverse" title="Close" onclick="{!c.closeModel}">
+			    <lightning:icon iconName="utility:close" size="small" variant="inverse"/>
+			    <span class="slds-assistive-text">Close</span>
+			</button>
+		    </div>
+		</div>
+	    </div>
+	</div>
+
+	</aura:if>
+
+```
+
+- In the controller you can use the following methods to show/close the toast.
+- You can also specify how much time should the toast be visible.
+	```js
+	    showToast: function(component, message, type, duration){
+	    	component.set("v.messageType", type);
+		component.set("v.toastMessage", message);
+		component.set("v.showToast",true);
+		if(duration > 0){
+			setTimeout($A.getCallback(function () {
+			    component.set('v.showToast', false);
+			}), duration);
+		}
+	    },
+
+	```
+
 ## Format Lightning Component Quick Action with Custom Header & Footer 
 >**Note** 
 >Add this aura component to an **Action** button on an object Record Page. This component overrides the standard **Header and Footer** of an Action component.
