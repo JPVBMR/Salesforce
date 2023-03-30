@@ -19,12 +19,12 @@ to define and provide external data for use in Drawloop DocGen Pacages.
           List<Loop.ExternalData.FieldInfo> outputFields = new List<Loop.ExternalData.FieldInfo>();
           
           if (objName == 'MyObject1') {
-              outputFields.add(new Loop.ExternalData.FieldInfo('Id', Schema.DisplayType.ID)); //optional
+              outputFields.add(new Loop.ExternalData.FieldInfo('Id', Schema.DisplayType.STRING)); 
               outputFields.add(new Loop.ExternalData.FieldInfo('MyCustomField2', Schema.DisplayType.STRING));
           }
           else if( objName == 'MyObject2'){
               outputFields.add(new Loop.ExternalData.FieldInfo('MyCustomField3', Schema.DisplayType.STRING));
-              outputFields.add(new Loop.ExternalData.FieldInfo('MyCustomField4', Schema.DisplayType.DATE));
+              outputFields.add(new Loop.ExternalData.FieldInfo('MyCustomField4', Schema.DisplayType.STRING));
           }
           else if( objName == 'MyObject3'){
               outputFields.add(new Loop.ExternalData.FieldInfo('MyCustomField6', Schema.DisplayType.STRING));
@@ -63,16 +63,16 @@ to define and provide external data for use in Drawloop DocGen Pacages.
       Loop.ExternalData.QueryResult results_obj3 = new Loop.ExternalData.QueryResult('MyObject3', new List<string> { 	
           'MyCustomField6'	
        } );
-
-      //Id myID = ...
        
-       /* Set Output Rows */
+       // do aditional processes...
+       
+      /* Set Objet field values (in this case we are just retrieving on record per object) but you can add the rows you want to the results_obj  **/
       results_obj1.rows.add(new List<String>{
-        myID, 'FC Porto'  
+        'myId', 'FC Porto'  
       });
       
       results_obj2.rows.add(new List<String>{
-        'FC Porto', 'FC Porto'  
+        'FC Porto', String.valueOf(System.today()) 
       });
       
       results_obj3.rows.add(new List<String>{
