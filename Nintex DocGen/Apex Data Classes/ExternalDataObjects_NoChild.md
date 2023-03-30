@@ -38,6 +38,12 @@ to define and provide external data for use in Drawloop DocGen Pacages.
       return output;
     }
   ```
+We are not doing it but you can link one object to another by using a reference. In order to repeat an object by row inside an object that repeats by section:
+```java 
+ Loop.ExternalData.FieldInfo outputInfo = new Loop.ExternalData.FieldInfo('RowGroup', Schema.DisplayType.REFERENCE);
+ outputInfo.referenceTo = 'MyCustomField6';
+ outputFields.add(outputInfo);
+```
 - Define the List Of Childs for each object (in this case we don't have) **/
   ```java
     public Set<string> getChildRelationships(string objectName) {
