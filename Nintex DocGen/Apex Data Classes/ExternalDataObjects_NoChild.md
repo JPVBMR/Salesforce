@@ -3,12 +3,15 @@
 >**Note** The following samples demonstrates how to implement the **IApexDataSource** interface
 to define and provide external data for use in Drawloop DocGen Pacages.
 
-- First let's create an Apex Class to use in the Data section of our Drawloop package. This class must **implements Loop.IApexDataSource**
+- First let's create an Apex Class to use in the Data section of our Drawloop package.
+- This class must **implements Loop.IApexDataSource**
 - Define the List of Objects this class can return:
   ```java    
-    public Set<string> getGlobalDescribe() {
-        return new Set<String>{'MyObject1', 'MyObject2', 'MyObject3'};
-    }
+    global class DrawloopApexExample implements Loop.IApexDataSource {
+      public Set<string> getGlobalDescribe() {
+          return new Set<String>{'MyObject1', 'MyObject2', 'MyObject3'};
+      }
+    (...)
   ```   
 - Define the fields and structure of each object
   ```java
