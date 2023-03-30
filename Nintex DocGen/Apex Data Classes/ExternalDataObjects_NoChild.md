@@ -64,10 +64,11 @@ to define and provide external data for use in Drawloop DocGen Pacages.
           'MyCustomField6'	
        } );
 
-
+      //Id myID = ...
+       
        /* Set Output Rows */
       results_obj1.rows.add(new List<String>{
-        'valueForMyID', 'FC Porto'  
+        myID, 'FC Porto'  
       });
       
       results_obj2.rows.add(new List<String>{
