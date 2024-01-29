@@ -17,3 +17,6 @@ Nintex DocGen® for Salesforce is a powerful document generation solution that e
 This repository includes the following resources and documentation:
 
 
+## Relevant Links:
+
+- [Github SDK Nintex](https://github.com/sdknintex) : Official github repo with sample apex classes.
