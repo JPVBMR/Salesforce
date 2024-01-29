@@ -1,4 +1,35 @@
-# Salesforce Docs & Solutions
+# Salesforce Notebook Repository
+
+Welcome to the Salesforce Notebook Repository! This repository serves as my personal notebook where I document various problems encountered and solutions discovered while working with Salesforce. Whether it's troubleshooting issues, implementing customizations, or exploring new features, this repository captures my journey through the Salesforce ecosystem.
+
+## Table of Contents
+
+- [Introduction](#introduction)
+- [Usage](#usage)
+- [Contributing](#contributing)
+
+## Introduction
+
+Salesforce is a powerful platform for building and managing customer relationships, enabling businesses to streamline their processes, automate tasks, and gain insights into their customers. As a Salesforce developer, administrator, or enthusiast, I encounter various challenges and learnings along the way. This repository serves as a central hub to document these experiences and share insights with others in the Salesforce community.
+
+## Usage
+
+This repository is organized into different sections based on topics, such as development, configuration, integration, and best practices. Each section contains notes, code snippets, configurations, and solutions related to specific Salesforce-related tasks or challenges. Feel free to explore the content, search for specific topics, or contribute by adding your own insights and solutions.
+
+## Contributing
+
+Contributions to this repository are welcome! If you have encountered a Salesforce-related problem and found a solution, feel free to share it here. You can contribute by:
+
+- Adding new notes or solutions to existing topics.
+- Creating new sections for topics not covered yet.
+- Fixing errors or improving existing content.
+- Providing feedback or suggestions for improvement.
+
+To contribute, simply fork this repository, make your changes, and submit a pull request. Your contributions will help enrich the repository and benefit the Salesforce community.
+
+
+
+# [OLD] Salesforce Docs & Solutions
 
   
   #### Training: 
