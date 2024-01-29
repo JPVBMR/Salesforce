@@ -2,12 +2,6 @@
 
 Welcome to the Salesforce Notebook Repository! This repository serves as my personal notebook where I document various problems encountered and solutions discovered while working with Salesforce. Whether it's troubleshooting issues, implementing customizations, or exploring new features, this repository captures my journey through the Salesforce ecosystem.
 
-## Table of Contents
-
-- [Introduction](#introduction)
-- [Usage](#usage)
-- [Contributing](#contributing)
-
 ## Introduction
 
 Salesforce is a powerful platform for building and managing customer relationships, enabling businesses to streamline their processes, automate tasks, and gain insights into their customers. As a Salesforce developer, administrator, or enthusiast, I encounter various challenges and learnings along the way. This repository serves as a central hub to document these experiences and share insights with others in the Salesforce community.
@@ -15,6 +9,24 @@ Salesforce is a powerful platform for building and managing customer relationshi
 ## Usage
 
 This repository is organized into different sections based on topics, such as development, configuration, integration, and best practices. Each section contains notes, code snippets, configurations, and solutions related to specific Salesforce-related tasks or challenges. Feel free to explore the content, search for specific topics, or contribute by adding your own insights and solutions.
+
+
+## Table of Contents
+
+- [**Documentation**](./Documentation): Contains various documents, notes, and guides related to Salesforce.
+  
+- [**Code**](./Code): Holds all Salesforce-related code, including Apex classes, triggers, Visualforce pages, Lightning components, and any other custom code.
+
+- [**Configuration**](./Configuration): Stores configuration-related files, such as Salesforce DX project configurations, permission sets, profiles, custom metadata types, and other configuration changes.
+
+- [**Integration**](./Integration): Contains integration-related files, such as API specifications, middleware configurations, and integration code.
+
+- [**Resources**](./Resources): Includes various helpful resources, such as cheat sheets, reference guides, tutorials, and links to useful websites or articles.
+
+- [**Reports_and_Dashboards**](./Reports_and_Dashboards): Stores definitions or exports of reports and dashboards created in Salesforce org.
+
+- [**Miscellaneous**](./Miscellaneous): Houses miscellaneous files that don't fit neatly into other categories, such as one-off scripts or experimental projects.
+
 
 ## Contributing
 
