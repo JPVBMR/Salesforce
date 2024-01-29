@@ -65,7 +65,6 @@ To contribute, simply fork this repository, make your changes, and submit a pull
 
 #### Relevant Links
   
-  - Salesforce Academy CGI Trailmix : https://trailhead.salesforce.com/pt-BR/users/rgpbrito/trailmixes/salesforce-academy-cgi
   - Setup Visual Studio Code : https://www.apexhours.com/how-to-setup-visual-studio-code-for-salesforce/
   - How Use Lightning Component in Visualforce page : 
     - https://www.greytrix.com/blogs/salesforce/2021/03/30/how-to-use-lightning-component-in-visualforce-page/
