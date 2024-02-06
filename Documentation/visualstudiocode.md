@@ -1,4 +1,4 @@
-# Visual Studio Code Setup and Configurations
+# Visual Studio Code - Setup & Configurations
 
 ## Org Setup on VSCode
 > **Note** This file explains how to setup VS Code for Salesforce and has some usefull tips and extensions to use.
