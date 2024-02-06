@@ -14,3 +14,10 @@
    - Place your cursor inside the repeating section content control.
    - Go to the "Insert" tab in the Word ribbon.
    - Click on "Page Break" in the "Pages" group. This will insert a page break inside the repeating section, ensuring that each section starts on a new page.
+
+  ## Example: 
+- List Of Items :
+   - ![image](https://github.com/JPVBMR/Salesforce/assets/51756941/a2e3da67-6589-4ad4-95a1-5ca93c9e3062)
+
+- Generated Document With 1 Item Per Page :
+   - ![image](https://github.com/JPVBMR/Salesforce/assets/51756941/48c8072f-3529-43d6-8323-7f719476f773)
