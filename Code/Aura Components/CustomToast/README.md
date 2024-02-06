@@ -1,4 +1,4 @@
-Create a custom toast in an aura component: 
+# Aura Component - Create a custom toast: 
 - This component has 2 main attributes : type, message.
 - The toast type: **error**, **warning**, **success**, or **info**.
 
