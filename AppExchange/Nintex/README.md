@@ -15,7 +15,7 @@ Nintex DocGen® for Salesforce is a powerful document generation solution that e
 ## Contents
 
 This repository includes the following resources and documentation:
-- [MS Word: Print 1 Item Per Page](./1ItemPerPage_Tutorial.md) : Official github repo with sample apex classes.
+- [MS Word: Print 1 Item Per Page](./1ItemPerPage_Tutorial.md) : Given a List Of Records/Items saved in Salesforce, generate a document and print 1 item per page.
 
 ## Relevant Links:
 
