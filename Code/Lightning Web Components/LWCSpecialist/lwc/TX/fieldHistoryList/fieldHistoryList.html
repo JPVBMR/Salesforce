@@ -1,0 +1,17 @@
+<template>
+    <lightning-card
+        icon-name="standard:action_list_component"
+        title={cardTitle}
+    >
+        <template if:true={lstRecords}>
+            <lightning-datatable
+                key-field="Id"
+                data={lstRecords}
+                columns={columns}
+                hide-checkbox-column="true"
+                hide-table-header={hideHeader}
+            >
+           </lightning-datatable>
+        </template>
+    </lightning-card>
+</template>
