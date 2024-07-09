@@ -16,6 +16,7 @@ Nintex DocGen® for Salesforce is a powerful document generation solution that e
 
 This repository includes the following resources and documentation:
 - [MS Word: Print 1 Item Per Page](./1ItemPerPage_Tutorial.md) : Given a List Of Records/Items saved in Salesforce, generate a document and print 1 item per page.
+- [Apex Data Relationships - Drawloop DocGen Packages](./IApexDataSource_Tutorial.md) : Learn how to implement the IApexDataSource interface to define and provide external data for use in Drawloop DocGen Packages.
 
 ## Relevant Links:
 
