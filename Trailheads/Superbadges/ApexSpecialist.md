@@ -22,9 +22,7 @@
 ### Entity Diagram
   ![image](https://github.com/user-attachments/assets/141702f4-8461-4ac0-9e54-ef3797367a1d)
 
-## Development Step By Step:
-
-#### 1. Automate record creation using Apex triggers
+### 1. Automate record creation using Apex triggers
    
 - Build a programmatic process that automatically schedules regular checkups on the equipment based on the date that the equipment was installed.
 - When an existing maintenance request of type Repair or Routine Maintenance is closed, create a new maintenance request for a future routine checkup.
@@ -167,3 +165,78 @@
     }
   }
   ```
+### 2. Synchronize Salesforce data with an external system
+- Implement an Apex class (called WarehouseCalloutService) that implements the queueable interface and makes a callout to the external service used for warehouse inventory management.
+- This service receives updated values in the external system and updates the related records in Salesforce.
+- Enqueue the job at least once to confirm that it's working as expected.
+
+```java
+public class WarehouseCalloutService implements Queueable, Database.AllowsCallouts {
+
+    private static final String WAREHOUSE_URL = 'https://th-superbadge-apex.herokuapp.com/equipment';
+    
+    @future(callout=true)
+    public static void syncEquipmentsWithExternalSystem(){
+        /* Specify Http Request Properties */
+        Http http = new Http();
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint(WAREHOUSE_URL);
+        req.setMethod('GET');
+        req.setHeader('Content-Type', 'application/json');
+
+        /* Send the request and save response */
+        HttpResponse res = http.send(req);
+        
+        List<Product2> lstEquipmentsToUpdate = new List<Product2>();
+
+        
+        if (res.getStatusCode() == 200){
+            List<Object> jsonResponse = (List<Object>)JSON.deserializeUntyped(res.getBody());
+            
+            //class maps the following fields: replacement part (always true), cost, current inventory, lifespan, maintenance cycle, and warehouse SKU
+            //warehouse SKU will be external ID for identifying which equipment records to update within Salesforce
+            for (Object eq : jsonResponse){
+                Map<String,Object> mapJson = (Map<String,Object>)eq;
+                Product2 equipmentX = new Product2();
+                equipmentX.Replacement_Part__c = (Boolean) mapJson.get('replacement');
+                equipmentX.Name = (String) mapJson.get('name');
+                equipmentX.Maintenance_Cycle__c = (Integer) mapJson.get('maintenanceperiod');
+                equipmentX.Lifespan_Months__c = (Integer) mapJson.get('lifespan');
+                equipmentX.Cost__c = (Integer) mapJson.get('cost');
+                equipmentX.Warehouse_SKU__c = (String) mapJson.get('sku');
+                equipmentX.Current_Inventory__c = (Double) mapJson.get('quantity');
+                equipmentX.ProductCode = (String) mapJson.get('_id');
+                lstEquipmentsToUpdate.add(equipmentX);
+            }
+            
+            if (lstEquipmentsToUpdate.size() > 0){
+                upsert lstEquipmentsToUpdate;
+                System.debug('Your equipment was synced with the warehouse one');
+            }
+        
+        }        
+    }
+    
+    public void execute(QueueableContext context){
+		  syncEquipmentsWithExternalSystem();
+    }
+    
+    
+}
+```
+
+### 3. Schedule synchronization
+- Build scheduling logic that executes your callout and runs your code daily.
+- The name of the schedulable class should be WarehouseSyncSchedule, and the scheduled job should be named WarehouseSyncScheduleJob.
+- ```java
+  global with sharing class WarehouseSyncSchedule implements Schedulable {
+    global void execute(SchedulableContext sc){
+        System.enqueueJob(new WarehouseCalloutService());
+    }
+  }
+  
+  // Execute in anonymous apex
+  String jobID = System.schedule('WarehouseSyncScheduleJob', '0 0 2 * * ?', new WarehouseSyncSchedule());
+  ```
+  
+  
