@@ -22,7 +22,7 @@
 ### Entity Diagram
   ![image](https://github.com/user-attachments/assets/141702f4-8461-4ac0-9e54-ef3797367a1d)
 
-### 1. Automate record creation using Apex triggers
+### :white_check_mark: Automate record creation using Apex triggers
    
 - Build a programmatic process that automatically schedules regular checkups on the equipment based on the date that the equipment was installed.
 - When an existing maintenance request of type Repair or Routine Maintenance is closed, create a new maintenance request for a future routine checkup.
@@ -165,7 +165,7 @@
     }
   }
   ```
-### 2. Synchronize Salesforce data with an external system
+### :white_check_mark: Synchronize Salesforce data with an external system
 - Implement an Apex class (called WarehouseCalloutService) that implements the queueable interface and makes a callout to the external service used for warehouse inventory management.
 - This service receives updated values in the external system and updates the related records in Salesforce.
 - Enqueue the job at least once to confirm that it's working as expected.
@@ -225,7 +225,7 @@ public class WarehouseCalloutService implements Queueable, Database.AllowsCallou
 }
 ```
 
-### 3. Schedule synchronization
+### :white_check_mark: Schedule synchronization
 - Build scheduling logic that executes your callout and runs your code daily.
 - The name of the schedulable class should be WarehouseSyncSchedule, and the scheduled job should be named WarehouseSyncScheduleJob.
 - ```java
@@ -238,5 +238,196 @@ public class WarehouseCalloutService implements Queueable, Database.AllowsCallou
   // Execute in anonymous apex
   String jobID = System.schedule('WarehouseSyncScheduleJob', '0 0 2 * * ?', new WarehouseSyncSchedule());
   ```
-  
-  
+
+### :white_check_mark: Create Unit Tests
+
+- Create an apex test class named - **MaintenanceRequestHelperTest**
+```java
+  @IsTest
+public with sharing class MaintenanceRequestHelperTest {
+    @TestSetup
+    static void setupTestData() {
+        // Create test Vehicle
+        Vehicle__c vehicle = new Vehicle__c(
+            Name = 'Test Vehicle', 
+            VIN_Number__c = 'VIN12345'
+        );
+        insert vehicle;
+
+       // Create a test Equipment (renamed Product) that meets lookup filter conditions
+        Product2 equipment1 = new Product2(Name = 'Brake Pads', ProductCode = 'EQ123', IsActive = true, Maintenance_Cycle__c = 30, Family = 'Spare Parts', Replacement_Part__c=true);
+        Product2 equipment2 = new Product2(Name = 'Engine Oil', ProductCode = 'EQ456', IsActive = true, Maintenance_Cycle__c = 45, Family = 'Spare Parts', Replacement_Part__c=true);
+        insert new List<Product2>{equipment1, equipment2};
+
+        // Create test Maintenance Requests (Cases)
+        List<Case> maintenanceRequests = new List<Case>();
+        for (Integer i = 0; i < 3; i++) {
+            maintenanceRequests.add(new Case(
+                Vehicle__c = vehicle.Id,
+                Type = 'Repair',
+                Subject = 'Test Repair Request ' + i,
+                Status = 'Open',
+                Date_Reported__c = Date.today()
+            ));
+        }
+        insert maintenanceRequests;
+
+        // Create multiple Equipment Maintenance Items per Maintenance Request
+        List<Equipment_Maintenance_Item__c> equipmentItems = new List<Equipment_Maintenance_Item__c>();
+        for (Case req : maintenanceRequests) {
+            // Assign multiple pieces of equipment to each case
+            equipmentItems.add(new Equipment_Maintenance_Item__c(Maintenance_Request__c = req.Id, Equipment__c = equipment1.Id));
+            equipmentItems.add(new Equipment_Maintenance_Item__c(Maintenance_Request__c = req.Id, Equipment__c = equipment2.Id));
+        }
+        insert equipmentItems;
+    }
+
+    @isTest
+    static void testTriggerCreatesRoutineMaintenanceWithMultipleItems() {
+        // Retrieve test Maintenance Requests
+        List<Case> maintenanceRequests = [SELECT Id, Vehicle__c, Status, Type FROM Case WHERE Type = 'Repair'];
+
+        // Verify test data exists
+        System.assert(maintenanceRequests.size() > 0, 'Test maintenance requests should exist.');
+
+        // Update requests to "Closed" to trigger logic
+        for (Case req : maintenanceRequests) {
+            req.Status = 'Closed';
+        }
+
+        Test.startTest();
+        update maintenanceRequests;
+        Test.stopTest();
+
+        // Verify Routine Maintenance Requests were created
+        List<Case> routineRequests = [SELECT Id, Type, Vehicle__c FROM Case WHERE Type = 'Routine Maintenance'];
+        System.assertEquals(maintenanceRequests.size(), routineRequests.size(), 'A Routine Maintenance case should be created for each closed Repair request.');
+
+        // Verify Equipment Maintenance Items were copied correctly
+        List<Equipment_Maintenance_Item__c> newEquipmentItems = [SELECT Id, Maintenance_Request__c, Equipment__c FROM Equipment_Maintenance_Item__c];
+        System.assert(newEquipmentItems.size() > maintenanceRequests.size(), 'Each new Routine Maintenance case should have multiple Equipment Maintenance Items.');
+
+        // Ensure multiple equipment items were added to a single case (hitting mapItemsByCaseIndex.get(caseIndex).add(newItem);)
+        Map<Id, Integer> caseToEquipmentCount = new Map<Id, Integer>();
+        for (Equipment_Maintenance_Item__c item : newEquipmentItems) {
+            if (!caseToEquipmentCount.containsKey(item.Maintenance_Request__c)) {
+                caseToEquipmentCount.put(item.Maintenance_Request__c, 1);
+            } else {
+                caseToEquipmentCount.put(item.Maintenance_Request__c, caseToEquipmentCount.get(item.Maintenance_Request__c) + 1);
+            }
+        }
+        for (Integer count : caseToEquipmentCount.values()) {
+            System.assert(count > 1, 'Each Routine Maintenance request should have multiple Equipment Maintenance Items.');
+        }
+    }   
+}
+```
+
+- Create a mock class named - **WarehouseCalloutServiceMock** - to simulate the callout respons from the external system:
+```java
+@isTest
+global class WarehouseCalloutServiceMock implements HttpCalloutMock {
+    global HttpResponse respond(HttpRequest req) {
+        // Simulate a valid JSON response
+        String mockJsonResponse = '[{'+
+            '"replacement": true,'+
+            '"name": "Brake Pads",' +
+            '"maintenanceperiod": 30,' +
+            '"lifespan": 24,' +
+            '"cost": 100,' +
+            '"sku": "SKU123",' +
+            '"quantity": 50,' +
+            '"_id": "EQ12345"' +
+        '}]';
+
+        HttpResponse res = new HttpResponse();
+        res.setHeader('Content-Type', 'application/json');
+        res.setBody(mockJsonResponse);
+        res.setStatusCode(200);
+        return res;
+    }
+}
+```
+
+- Create a test class named - **WarehouseCalloutServiceTest** - to test the callout to the external system:
+```java
+@isTest
+private class WarehouseCalloutServiceTest {
+
+    @isTest
+    static void testSyncEquipmentsWithExternalSystem() {
+        // Set up the mock response
+        Test.setMock(HttpCalloutMock.class, new WarehouseCalloutServiceMock());
+
+        // Verify no Product2 records exist before the callout
+        Test.startTest();
+        	WarehouseCalloutService.syncEquipmentsWithExternalSystem();
+        Test.stopTest();
+
+        // Query the inserted Product2 records
+        List<Product2> equipments = [SELECT Name, Maintenance_Cycle__c, Lifespan_Months__c, 
+                                      Cost__c, Warehouse_SKU__c, Current_Inventory__c, ProductCode
+                                      FROM Product2 WHERE Warehouse_SKU__c = 'SKU123'];
+
+        // Assertions to validate that data is inserted correctly
+        System.assertEquals(1, equipments.size(), 'One equipment record should be created.');
+        System.assertEquals('Brake Pads', equipments[0].Name);
+        System.assertEquals(30, equipments[0].Maintenance_Cycle__c);
+        System.assertEquals(24, equipments[0].Lifespan_Months__c);
+        System.assertEquals(100, equipments[0].Cost__c);
+        System.assertEquals('SKU123', equipments[0].Warehouse_SKU__c);
+        System.assertEquals(50.0, equipments[0].Current_Inventory__c);
+        System.assertEquals('EQ12345', equipments[0].ProductCode);
+    }
+
+    @isTest
+    static void testQueueableExecution() {
+        // Set up the mock response
+        Test.setMock(HttpCalloutMock.class, new WarehouseCalloutServiceMock());
+
+        Test.startTest();
+        	System.enqueueJob(new WarehouseCalloutService());
+        Test.stopTest();
+
+        // Ensure a job is enqueued
+        System.assertEquals(1, [SELECT COUNT() FROM AsyncApexJob WHERE JobType = 'Queueable'], 
+                            'A Queueable job should be enqueued.');
+    }
+}
+```
+
+- Create a test class named - **WarehouseSyncScheduleTest** - to test the job scheduler:
+```java
+@isTest
+private class WarehouseSyncScheduleTest {
+    
+    @isTest
+    static void testWarehouseSyncScheduling() {
+        // Set up the mock response for the callout
+        Test.setMock(HttpCalloutMock.class, new WarehouseCalloutServiceMock());
+
+        // Start test execution block
+        Test.startTest();
+        
+            // Schedule the job
+            String jobId = System.schedule('Test Warehouse Sync', '0 0 12 * * ?', new WarehouseSyncSchedule());
+            
+        // Stop test execution block
+        Test.stopTest();
+
+        // Query the scheduled job
+        CronTrigger ct = [SELECT Id, CronExpression, TimesTriggered, State 
+                          FROM CronTrigger WHERE Id = :jobId];
+
+        // Assertions to validate scheduling
+        System.assertNotEquals(null, jobId, 'Job ID should not be null.');
+        System.assertEquals('0 0 12 * * ?', ct.CronExpression, 'Cron expression should match.');
+        System.assertEquals('WAITING', ct.State, 'Scheduled job should be in WAITING state.');
+
+        // Check that the Queueable job was enqueued
+        System.assertEquals(1, [SELECT COUNT() FROM AsyncApexJob WHERE JobType = 'Queueable'], 
+                            'A Queueable job should be enqueued.');
+    }
+}
+
+```
