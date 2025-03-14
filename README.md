@@ -19,9 +19,7 @@ This repository is organized into different sections based on topics, such as de
 
 - [**Trailheads**](./Trailheads): Includes various helpful resources created while studying and completing Salesforce Trailheads.
 
-- [**AppExchange**](./Trailheads): Contains information and useful tips for Salesforce Applications available on AppExchange.
-
-
+- [**AppExchange **](./AppExchange): Contains information and useful tips for some Salesforce Applications available on AppExchange.
 
 ## Contributing
 
