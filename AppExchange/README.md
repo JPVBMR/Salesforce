@@ -12,7 +12,7 @@ The primary purpose of this folder is to:
 
 ## Contents
 
-- [Nintex DocGen® for Salesforce](./NintexDocGen/README.md): Detailed documentation for Nintex DocGen® for Salesforce, including setup instructions, usage guidelines, and troubleshooting tips.
+- [Nintex DocGen® for Salesforce](./Nintex/README.md): Detailed documentation for Nintex DocGen® for Salesforce (tool used for document generation) including setup instructions, usage guidelines, and troubleshooting tips.
 
 
 Feel free to explore the subfolders for detailed documentation on specific AppExchange apps. Each subfolder contains a README.md file providing an overview of the app and links to relevant resources.
