@@ -1,5 +1,5 @@
 # Apex Specialist Superbadge
->:information_source: What You'll Be Doing to Earn This Superbadge
+>:information_source: What You'll Be Doing to Earn This Superbadge - [Official Documentation](https://trailhead.salesforce.com/content/learn/superbadges/superbadge_apex)
 >- Automate record creation using Apex triggers
 >- Synchronize Salesforce data with an external system using asynchronous REST callouts
 >- Schedule synchronization using Apex code
