@@ -17,7 +17,7 @@ This repository is organized into different sections based on topics, such as de
 
 - [**Resources**](./Resources): Includes various helpful resources, such as cheat sheets, reference guides, tutorials, and links to useful websites or articles.
 
-- [**Trailheads**](./Trailheads): Includes various helpful resources created while studying and completing Salesforce Trailheads.
+- [**Trailheads & Certifications **](./Trailheads): Includes various helpful resources created while studying and completing Salesforce Trailheads and Certifications.
 
 - [**AppExchange**](./AppExchange): Contains information and useful tips for some Salesforce Applications available on AppExchange.
 
