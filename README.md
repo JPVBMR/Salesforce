@@ -15,15 +15,9 @@ This repository is organized into different sections based on topics, such as de
   
 - [**Code**](./Code): Holds all Salesforce-related code, including Apex classes, triggers, Visualforce pages, Lightning components, and any other custom code.
 
-- [**Configuration**](./Configuration): Stores configuration-related files, such as Salesforce DX project configurations, permission sets, profiles, custom metadata types, and other configuration changes.
-
-- [**Integration**](./Integration): Contains integration-related files, such as API specifications, middleware configurations, and integration code.
-
 - [**Resources**](./Resources): Includes various helpful resources, such as cheat sheets, reference guides, tutorials, and links to useful websites or articles.
 
-- [**Reports_and_Dashboards**](./Reports_and_Dashboards): Stores definitions or exports of reports and dashboards created in Salesforce org.
 
-- [**Miscellaneous**](./Miscellaneous): Houses miscellaneous files that don't fit neatly into other categories, such as one-off scripts or experimental projects.
 
 
 ## Contributing
